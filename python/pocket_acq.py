@@ -119,7 +119,7 @@ def plot_cn0(ax, cn0, prns, fc):
     ax.grid(True, lw=0.4)
     ax.set_xlim([x[0] - 0.5, x[-1] + 0.5])
     plt.xticks(x, ['%d' % (prn) for prn in prns])
-    ax.set_ylim([30, 50])
+    ax.set_ylim([30, 60])
     ax.set_xlabel('PRN Number')
     ax.set_ylabel('C/N0 (dB-Hz)')
 

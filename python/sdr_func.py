@@ -65,11 +65,12 @@ log_str = None     # log stream
 #
 def read_data(file, fs, IQ, T, toff=0.0):
     off = int(fs * toff * IQ)
-    cnt = int(fs * T * IQ) if T > 0.0 else -1 # all if T=0.0
+    cnt = (int(fs * T * IQ) & ~1) if T > 0.0 else -1 # all if T=0.0
     
     f = open(file, 'rb')
-    f.seek(off, os.SEEK_SET)
-    raw = np.fromfile(f, dtype=np.int8, count=cnt)
+    f.seek(off*2, os.SEEK_SET)
+    raw = np.fromfile(f, dtype=np.int16, count=cnt)
+    # print(cnt, raw)
     f.close()
     
     if len(raw) < cnt:

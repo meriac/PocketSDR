@@ -60,10 +60,10 @@ rect5  = [-.430, 0.000, 1.800, 1.160]
 # read IF data -----------------------------------------------------------------
 def read_data(fp, N, IQ, buff, ix):
     if fp == None:
-        raw = np.frombuffer(sys.stdin.buffer.read(N * IQ), dtype='int8')
+        raw = np.frombuffer(sys.stdin.buffer.read(N * IQ * 2), dtype='int16')
     else:
-        raw = np.frombuffer(fp.read(N * IQ), dtype='int8')
-    
+        raw = np.frombuffer(fp.read(N * IQ * 2), dtype='int16')
+    # print(raw)
     if len(raw) < N * IQ:
         return False
     elif IQ == 1: # I

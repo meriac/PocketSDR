@@ -25,7 +25,7 @@ def show_usage():
 
 # plot PSD ---------------------------------------------------------------------
 def plot_psd(fig, rect, IQ, fs, fc, bc):
-    yl = [-80, -45]
+    yl = [-80, 0]
     if IQ == 1: # I
         xl = [0, fs * 0.5]
     else: # IQ

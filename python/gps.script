@@ -1,0 +1,13 @@
+set frequency rx 1575.42M
+set samplerate 6M
+set bandwidth rx 3M
+set biastee rx1 off
+set biastee rx2 on
+set agc on
+rx config file=gps.raw format=bin n=360M channel=2
+print frequency
+print samplerate
+print bandwidth
+rx start
+rx
+rx wait
